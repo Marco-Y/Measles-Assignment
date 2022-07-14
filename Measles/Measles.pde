@@ -15,7 +15,11 @@ void setup()
   } else {
     smallerDimension = width;
   }//End dimension choice
-  widthDiameterFace = width;
+  widthDiameterFace = smallerDimension;
+  heightDiameterFace = smallerDimension;
+  xFace = yFace;
+  yFace = xFace;
+  widthDiameterFace = heightDiameterFace;
   heightDiameterFace = widthDiameterFace;
   //
 }//End setup
@@ -23,12 +27,12 @@ void setup()
 void draw() 
 {
   ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
-  ellipse(xLeftEye yLeftEye, eyeDiameter, eyeDiameter);
+  ellipse(xLeftEye, yLeftEye, eyeDiameter, eyeDiameter);
   ellipse(xRightEye, yRightEye, eyeDiameter, eyeDiameter);
   triangle(xNoseBridge,yNoseBridge, xLeftNostril,yLeftNostril, xRightNostril,yRightNostril);
   line (xLeftMouth, yLeftMouth, xRightMouth, yRightMouth);
   //
-  ellipse(xMeasle, yMeasle, measleDiameter, measleDiameter)
+  ellipse(xMeasle, yMeasle, measleDiameter, measleDiameter);
   //
 }//End draw
 //
