@@ -74,27 +74,34 @@ void keyPressed() {
 }//End keyPressed
 //
 void mousePressed() {
-  //Technically, there are 4 ways to code a mouse press
+  //Technically, there are 4 ways to code a mouse button press
   //
   if ( mouseButton == LEFT ) { //Night Mode FALSE
-  backgroundColor = color( random(255), random(255), 0 ) 
-  background( backgroundColor );
-  ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
+    backgroundColour = color( random(255), random(255), random(255) ) ; 
+    background( backgroundColour );
+    ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
   }//End Left Mouse Button
-  if ( mouseButton == RIGHT ) {}//End Right Mouse Button
+  //
+  if ( mouseButton == RIGHT ) { //Night Mode TRUE
+    backgroundColour = color( random(255), random(255), 0 );
+    background( backgroundColour );
+    ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
+  }//End Right Mouse Button
+  //
+  //Note: Mouse WHEEL is also available
   //if ( mouseButton == WHEEL ) {}//End Mouse WHEEL
   //
   /* For any button
-   if ( nightMode==false ) { //nightMode Switch
+   if ( nightMode == false ) { //NightMode Switch
    nightMode = true;
    } else {
-    nightMode = false;
-  } //End nightMode Switch
-  //
-  backgroundColor = ( nightMode==true ) ? color( random(255), random(255), 0 ) : color( random(255), random(255), random(255) ) ; //ternary operator similar to IF-Else
-  background( backgroundColor );
-  ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
-  */
+   nightMode = false;
+   } //End nightMode switch
+   //
+   backgroundColour = ( nightMode==true ) ? color( random(255), random(255), 0 ) : color( random(255), random(255), random(255) ) ; //ternary operator, similar to IF-Else
+   background( backgroundColour );
+   ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
+   */
   //
 }//End mousePressed
 //
