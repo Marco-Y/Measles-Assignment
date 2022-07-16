@@ -6,6 +6,7 @@ float xLeftMouth, yLeftMouth, xRightMouth, yRightMouth;
 int thack=50;
 float xMeasle, yMeasle, measleDiameter;
 color resetWhite=#FFFFFF, red=#F20F0F, black=#000000; //similar to int declaration
+color backgroundColor;
 Boolean nightMode =false;
 //
 void setup() 
@@ -77,14 +78,14 @@ void mousePressed() {
   //Technically, there are 4 ways to code a mouse button press
   //
   if ( mouseButton == LEFT ) { //Night Mode FALSE
-    backgroundColour = color( random(255), random(255), random(255) ) ; 
-    background( backgroundColour );
+    backgroundColor = color( random(255), random(255), random(255) ) ; 
+    background( backgroundColor );
     ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
   }//End Left Mouse Button
   //
   if ( mouseButton == RIGHT ) { //Night Mode TRUE
-    backgroundColour = color( random(255), random(255), 0 );
-    background( backgroundColour );
+    backgroundColor = color( random(255), random(255), 0 );
+    background( backgroundColor );
     ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
   }//End Right Mouse Button
   //
