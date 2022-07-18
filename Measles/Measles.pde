@@ -45,6 +45,7 @@ void setup()
   //
   color backgroundColor = ( nightMode==true ) ? color( random(255), random(255), 0 ) : color( random(255), random(255), random(255) ) ; //ternary operator similar to IF-Else
   background( backgroundColor );
+  rect(xCenter-faceRadius, 0, 2*faceRadius, smallerDimension);
   ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
   //
 }//End setup
@@ -61,7 +62,8 @@ void draw()
   strokeWeight(1);
   //
   xMeasle = random(xCenter-faceRadius, xCenter+faceRadius);
-  yMeasle = random(0, smallerDimension); //if zero is first, then default
+  yMeasle = random(smallerDimension); //if zero is first, then default
+  //rect(xCenter-faceRadius, 0, 2*faceRadius, smallerDimension);
   fill(red);
   noStroke();
   measleDiameter = random(smallerDimension*1/75, smallerDimension*1/25); //smallerDimension*1/50;
