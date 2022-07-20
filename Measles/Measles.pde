@@ -47,6 +47,7 @@ void mousePressed() {
     background( backgroundColor );
     //rect(xCenter-faceRadius, 0, 2*faceRadius, smallerDimension);
     ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
+    if (mouseX> QuitX && mouseX< QuitX+ButtonWidth && mouseY> QuitY && mouseY< QuitY+ButtonHeight) exit();
   }//End Left Mouse Button
   //
   if ( mouseButton == RIGHT ) { //Night Mode TRUE
