@@ -8,44 +8,17 @@ float xMeasle, yMeasle, measleDiameter;
 color resetWhite=#FFFFFF, red=#F20F0F, black=#000000; //similar to int declaration
 color backgroundColor;
 Boolean nightMode =false;
+//Boolean measleDraw=false;
+//turn measle into background color if cross the circle
 //
 void setup()
 {
   //CANVAS will be added later
   size(800, 600); //Landscape
   //
-  //Population
-  xCenter = width/2;
-  float yCenter = height/2;
-  xFace = xCenter;
-  yFace = yCenter;
-  if ( width >= height ) {
-    smallerDimension = height;
-  } else {
-    smallerDimension = width;
-  }//End dimension choice
-  widthDiameterFace = smallerDimension;
-  heightDiameterFace = smallerDimension;
-  xLeftEye = xCenter-smallerDimension*1/4;
-  yLeftEye = yCenter-smallerDimension*1/4;
-  xRightEye = xCenter+smallerDimension*1/4;
-  yRightEye = yCenter-smallerDimension*1/4;
-  eyeDiameter = smallerDimension*1/8;
-  xNoseBridge = xCenter;
-  yNoseBridge = yCenter-smallerDimension*1/8;
-  xLeftNostril = xCenter-smallerDimension*1/8;
-  yLeftNostril = yCenter+smallerDimension*1/8;
-  xRightNostril = xCenter+smallerDimension*1/8;
-  yRightNostril = yLeftNostril;
-  xLeftMouth = xLeftEye;
-  yLeftMouth = yCenter+smallerDimension*1/4;
-  xRightMouth = xRightEye;
-  yRightMouth = yLeftMouth;
-  faceRadius = smallerDimension/2;
-  //
+  populationVariables();
   color backgroundColor = ( nightMode==true ) ? color( random(255), random(255), 0 ) : color( random(255), random(255), random(255) ) ; //ternary operator similar to IF-Else
   background( backgroundColor );
-  rect(xCenter-faceRadius, 0, 2*faceRadius, smallerDimension);
   ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
   //
 }//End setup
@@ -60,6 +33,7 @@ void draw()
   line (xLeftMouth, yLeftMouth, xRightMouth, yRightMouth);
   strokeWeight(1);
   //
+  if (xMeasle>xCenter+faceRadius && xMeasle<xCenter-faceRadius && xMeasle>xCenter+faceRadius && xMeasle<xCenter-faceRadius) {
   xMeasle = random(xCenter-faceRadius, xCenter+faceRadius);
   yMeasle = random(smallerDimension); //if zero is first, then default
   fill(red);
@@ -70,6 +44,7 @@ void draw()
   fill(resetWhite);
   //
   //
+  //noLoop(); <- stop the loop
 }//End draw
 //
 void keyPressed() {
@@ -81,12 +56,14 @@ void mousePressed() {
   if ( mouseButton == LEFT ) { //Night Mode FALSE
     backgroundColor = color( random(255), random(255), random(255) ) ;
     background( backgroundColor );
+    rect(xCenter-faceRadius, 0, 2*faceRadius, smallerDimension);
     ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
   }//End Left Mouse Button
   //
   if ( mouseButton == RIGHT ) { //Night Mode TRUE
     backgroundColor = color( random(255), random(255), 0 );
     background( backgroundColor );
+    rect(xCenter-faceRadius, 0, 2*faceRadius, smallerDimension);
     ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
   }//End Right Mouse Button
   //
