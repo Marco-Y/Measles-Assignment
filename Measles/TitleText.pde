@@ -7,10 +7,10 @@ int titleSize;
 //
 void titleText() {
   //Population
-  titleX = width*1/5;
-  titleY = height*1/15;
-  titleWidth = width*3/5;
-  titleHeight = height*1/10;
+  titleX = width*1.4/5;
+  titleY = height*1/50;
+  titleWidth = width*2.1/5;
+  titleHeight = height*1/12;
   titleRadii = 10;
   //
   //Single Executed Code

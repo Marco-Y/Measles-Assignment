@@ -1,25 +1,20 @@
 //Global Variables
-float quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight;
 color green=#0EFF03, resetButtonColor=#FFFFFF, buttonFill; //Not night mode friendly colors
 //
 void quitButton() {
   //Population
-  int QuitX = width/5;
-  int QuitY = height/5;
-  int ButtonWidth = width*1/8;
-  int ButtonHeight = height*1/8;
-  quitButtonX = QuitX - ButtonWidth;
-  quitButtonY = QuitY - ButtonHeight;
-  quitButtonWidth = QuitX;
-  quitButtonHeight = QuitY;
+  int QuitX = width/30;
+  int QuitY = height/50;
+  int ButtonWidth = width*1/6;
+  int ButtonHeight = height*1/10;
   //Hover-over
-  if (mouseX> quitButtonX && mouseX< quitButtonX+quitButtonWidth && mouseY> quitButtonY && mouseY< quitButtonY+quitButtonHeight) {
+  if (mouseX> QuitX && mouseX< QuitX+ButtonWidth && mouseY> QuitY && mouseY< QuitY+ButtonHeight) {
   buttonFill = green;} else {
   buttonFill = red;
   }//End Hover-over
   fill(buttonFill); //2-colors to start , remember nightMode adds choice
-  rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
-  fill(resetButtonColor);
+  rect(QuitX, QuitY, ButtonWidth, ButtonHeight);
+  fill(resetDefaultInk);
   //
   //Repeating CONSOLE values illustrating mouseX and mouseY related to a formula, mouse buttons
   //println("X-value", quitButtonX, "\t", mouseX, "\t", quitButtonX+quitButtonWidth, "\t\t Look at the middle value");
