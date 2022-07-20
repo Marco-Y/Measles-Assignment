@@ -3,13 +3,13 @@ float xFace, yFace, widthDiameterFace, heightDiameterFace, faceRadius, smallerDi
 float xLeftEye, yLeftEye, xRightEye, yRightEye, eyeDiameter;
 float xNoseBridge, yNoseBridge, xLeftNostril, yLeftNostril, xRightNostril, yRightNostril;
 float xLeftMouth, yLeftMouth, xRightMouth, yRightMouth;
-int thack=50;
+int thack=30;
 float xMeasle, yMeasle, measleDiameter;
 color resetWhite=#FFFFFF, red=#F20F0F, black=#000000; //similar to int declaration
 color backgroundColor;
 Boolean nightMode =false;
 //
-void setup() 
+void setup()
 {
   //CANVAS will be added later
   size(800, 600); //Landscape
@@ -26,13 +26,13 @@ void setup()
   }//End dimension choice
   widthDiameterFace = smallerDimension;
   heightDiameterFace = smallerDimension;
-  xLeftEye = xCenter-smallerDimension*1/4; 
+  xLeftEye = xCenter-smallerDimension*1/4;
   yLeftEye = yCenter-smallerDimension*1/4;
   xRightEye = xCenter+smallerDimension*1/4;
   yRightEye = yCenter-smallerDimension*1/4;
   eyeDiameter = smallerDimension*1/8;
   xNoseBridge = xCenter;
-  yNoseBridge = yCenter-smallerDimension*1/8; 
+  yNoseBridge = yCenter-smallerDimension*1/8;
   xLeftNostril = xCenter-smallerDimension*1/8;
   yLeftNostril = yCenter+smallerDimension*1/8;
   xRightNostril = xCenter+smallerDimension*1/8;
@@ -50,12 +50,12 @@ void setup()
   //
 }//End setup
 //
-void draw() 
+void draw()
 {
-  
+
   ellipse(xLeftEye, yLeftEye, eyeDiameter, eyeDiameter);
   ellipse(xRightEye, yRightEye, eyeDiameter, eyeDiameter);
-  triangle(xNoseBridge,yNoseBridge, xLeftNostril,yLeftNostril, xRightNostril,yRightNostril);
+  triangle(xNoseBridge, yNoseBridge, xLeftNostril, yLeftNostril, xRightNostril, yRightNostril);
   strokeCap(SQUARE); //ROUND (default), PROJECT
   strokeWeight(thack);
   line (xLeftMouth, yLeftMouth, xRightMouth, yRightMouth);
@@ -71,6 +71,7 @@ void draw()
   stroke(1); //reset Default
   fill(resetWhite);
   //
+  //
 }//End draw
 //
 void keyPressed() {
@@ -80,7 +81,7 @@ void mousePressed() {
   //Technically, there are 4 ways to code a mouse button press
   //
   if ( mouseButton == LEFT ) { //Night Mode FALSE
-    backgroundColor = color( random(255), random(255), random(255) ) ; 
+    backgroundColor = color( random(255), random(255), random(255) ) ;
     background( backgroundColor );
     ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
   }//End Left Mouse Button
