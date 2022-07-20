@@ -5,7 +5,7 @@ float xNoseBridge, yNoseBridge, xLeftNostril, yLeftNostril, xRightNostril, yRigh
 float xLeftMouth, yLeftMouth, xRightMouth, yRightMouth;
 int thack=30;
 float xMeasle, yMeasle, measleDiameter;
-color resetWhite=#FFFFFF, red=#F55E72, black=#000000; //similar to int declaration
+color resetWhite=#FFFFFF, lightred=#F55E72, black=#000000; //similar to int declaration
 color backgroundColor;
 Boolean nightMode =false;
 //
@@ -13,15 +13,15 @@ void populationVariables () {
   //Population
   xCenter = width/2;
   float yCenter = height/2;
-  xFace = xCenter;
+  xFace = xCenter+width*1/4;
   yFace = yCenter;
   if ( width >= height ) {
     smallerDimension = height;
   } else {
     smallerDimension = width;
   }//End dimension choice
-  widthDiameterFace = smallerDimension;
-  heightDiameterFace = smallerDimension;
+  widthDiameterFace = smallerDimension*1/2;
+  heightDiameterFace = smallerDimension*1/1.7;
   xLeftEye = xCenter-smallerDimension*1/5;
   yLeftEye = yCenter-smallerDimension*1/5;
   xRightEye = xCenter+smallerDimension*1/5;
