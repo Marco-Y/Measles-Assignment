@@ -66,7 +66,7 @@ void draw()
   //rect(xCenter-faceRadius, 0, 2*faceRadius, smallerDimension);
   fill(red);
   noStroke();
-  measleDiameter = random(smallerDimension*1/75, smallerDimension*1/25); //smallerDimension*1/50;
+  measleDiameter = random(smallerDimension* 1/random(25, 75));
   ellipse(xMeasle, yMeasle, measleDiameter, measleDiameter);
   stroke(1); //reset Default
   fill(resetWhite);
