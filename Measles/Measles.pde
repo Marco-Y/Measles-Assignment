@@ -63,7 +63,6 @@ void draw()
   //
   xMeasle = random(xCenter-faceRadius, xCenter+faceRadius);
   yMeasle = random(smallerDimension); //if zero is first, then default
-  //rect(xCenter-faceRadius, 0, 2*faceRadius, smallerDimension);
   fill(red);
   noStroke();
   measleDiameter = random(smallerDimension* 1/random(25, 75));
