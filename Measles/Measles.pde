@@ -15,6 +15,7 @@ void setup()
 //
 void draw()
 {
+  titleText();
   ellipse(xLeftEye, yLeftEye, eyeDiameter, eyeDiameter);
   ellipse(xRightEye, yRightEye, eyeDiameter, eyeDiameter);
   triangle(xNoseBridge, yNoseBridge, xLeftNostril, yLeftNostril, xRightNostril, yRightNostril);

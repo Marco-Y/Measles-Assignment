@@ -5,7 +5,7 @@ float xNoseBridge, yNoseBridge, xLeftNostril, yLeftNostril, xRightNostril, yRigh
 float xLeftMouth, yLeftMouth, xRightMouth, yRightMouth;
 int thack=30;
 float xMeasle, yMeasle, measleDiameter;
-color resetWhite=#FFFFFF, red=#F20F0F, black=#000000; //similar to int declaration
+color resetWhite=#FFFFFF, red=#F55E72, black=#000000; //similar to int declaration
 color backgroundColor;
 Boolean nightMode =false;
 //
