@@ -1,13 +1,3 @@
-//Global Variables
-float xFace, yFace, widthDiameterFace, heightDiameterFace, faceRadius, smallerDimension, xCenter;
-float xLeftEye, yLeftEye, xRightEye, yRightEye, eyeDiameter;
-float xNoseBridge, yNoseBridge, xLeftNostril, yLeftNostril, xRightNostril, yRightNostril;
-float xLeftMouth, yLeftMouth, xRightMouth, yRightMouth;
-int thack=30;
-float xMeasle, yMeasle, measleDiameter;
-color resetWhite=#FFFFFF, red=#F20F0F, black=#000000; //similar to int declaration
-color backgroundColor;
-Boolean nightMode =false;
 //Boolean measleDraw=false;
 //turn measle into background color if cross the circle
 //
@@ -33,7 +23,6 @@ void draw()
   line (xLeftMouth, yLeftMouth, xRightMouth, yRightMouth);
   strokeWeight(1);
   //
-  if (xMeasle>xCenter+faceRadius && xMeasle<xCenter-faceRadius && xMeasle>xCenter+faceRadius && xMeasle<xCenter-faceRadius) {
   xMeasle = random(xCenter-faceRadius, xCenter+faceRadius);
   yMeasle = random(smallerDimension); //if zero is first, then default
   fill(red);
@@ -42,7 +31,6 @@ void draw()
   ellipse(xMeasle, yMeasle, measleDiameter, measleDiameter);
   stroke(1); //reset Default
   fill(resetWhite);
-  //
   //
   //noLoop(); <- stop the loop
 }//End draw
