@@ -2,7 +2,7 @@
 String title = "Measles Simulator";
 String quitText = "Quit";
 String stopText = "Stop";
-String startText = "Press E to start";
+String startText = "Press E/Tap Left Side to start";
 float titleX, titleY, titleWidth, titleHeight, titleRadii;
 PFont titleFont;
 float quitTextX, quitTextY, quitTextWidth, quitTextHeight;
@@ -71,13 +71,14 @@ void stopText() {
 //
 void startText() {
   //Population
-  startTextX = xCenter;
-  startTextY = yCenter + smallerDimension*1/3;
-  startTextWidth = smallerDimension*1/4;
+  startTextX = xCenter-smallerDimension*1/4;
+  startTextY = yCenter + smallerDimension*1/2.5;
+  startTextWidth = smallerDimension*1/2;
   startTextHeight = smallerDimension*1/10;
-  startTextFont = createFont("TimesNewRomanPSMT-BoldItalicMT")
+  startTextFont = createFont("TimesNewRomanPS-BoldItalicMT", 600);
   int startTextSize = 25;
   //
   textAlign(CENTER, CENTER);
-  textFont(startTextFont
+  textFont(startTextFont, startTextSize);
+  text(startText, startTextX, startTextY, startTextWidth, startTextHeight);
 }//End startText

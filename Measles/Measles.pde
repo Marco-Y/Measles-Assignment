@@ -5,6 +5,8 @@ float restartX, restartY, restartButtonWidth, restartButtonHeight;
 color green=#0EFF03, brown=#954C48, waterColor=#b9dbe1, resetButtonColor=#FFFFFF, buttonFill; //Not night mode friendly colors
 int centeringButtonWidth = width*1/4;
 int centeringButtonHeight = height*1/4;
+Boolean noLoop=false, loop=false;
+//
 void setup() {
   //Display Geometry
   size(1000, 750); //Landscape
@@ -41,11 +43,11 @@ void setup() {
   color backgroundColor = ( nightMode==true ) ? color( random(255), random(255), 0 ) : color( random(255), random(255), random(255) ) ; //ternary operator similar to IF-Else
   background( backgroundColor );
   ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
+  noLoop();
   //
 }//End setup
 //
 void draw() {
-  noLoop();
   //Hover-over
   if (mouseX> quitX && mouseX< quitX+quitButtonWidth && mouseY> quitY && mouseY< quitY+quitButtonHeight) {
     buttonFill = green;
@@ -70,6 +72,7 @@ void draw() {
   titleText();
   quitText();
   stopText();
+  startText();
   fill(lightred);
   //
   //
@@ -114,12 +117,11 @@ void draw() {
   stroke(1); //reset Default
   fill(resetWhite);
   //
-  //noLoop(); <- stop the loop
 }//End draw
 //
 void keyPressed() {
-  if (key=='q' || key=='Q')
-  if (key=='e' || key=='s') loop();
+  if (key=='q' || key=='Q') exit();
+  if (key=='e' || key=='E') loop();
   if (key=='s' || key=='S') noLoop();
 }//End keyPressed
 //
@@ -127,9 +129,19 @@ void mousePressed() {
   //Technically, there are 4 ways to code a mouse button press
   //
   if ( mouseButton == LEFT ) { //Night Mode FALSE
-  if (mouseX> quitX && mouseX< quitX+quitButtonWidth && mouseY> quitY && mouseY< quitY+quitButtonHeight) exit();
-  }//End Left Mouse Button
-  if (mouseX>stopX && mouseX<stopX+smallerDimension*1/5 && mouseY>stopY && mouseY<stopY+smallerDimension*1/10) noLoop();
+    if (mouseX> quitX && mouseX< quitX+quitButtonWidth && mouseY> quitY && mouseY< quitY+quitButtonHeight) exit();
+    if (mouseX>stopX && mouseX<stopX+smallerDimension*1/5 && mouseY>stopY && mouseY<stopY+smallerDimension*1/10) noLoop();
+  }
+  //
+  if (mouseX>0 && mouseX<width-smallerDimension && mouseY>0 && mouseY<height) {
+    if (noLoop=true) {
+      loop=false;
+      loop();
+    } else {
+      noLoop=false;
+      noLoop();
+    }
+  }//End Left Mouse button
   //
   if ( mouseButton == RIGHT ) { //Night Mode TRUE
     backgroundColor = color( random(255), random(255), 0 );
