@@ -1,10 +1,5 @@
-//Boolean measleDraw=false;
-//turn measle into background color if cross the circle
-//
 float quitX, quitY, quitButtonWidth, quitButtonHeight;
 color green=#0EFF03, resetButtonColor=#FFFFFF, buttonFill; //Not night mode friendly colors
-int centerX = width/2;
-int centerY = height/2;
 int centeringButtonWidth = width*1/4;
 int centeringButtonHeight = height*1/4;
 void setup() {
@@ -29,7 +24,9 @@ void draw() {
   fill(buttonFill); //2-colors to start , remember nightMode adds choice
   rect(quitX, quitY, quitButtonWidth, quitButtonHeight);
   fill(resetButtonColor);
+  //
   titleText();
+  //
   ellipse(xLeftEye, yLeftEye, eyeDiameter, eyeDiameter);
   ellipse(xRightEye, yRightEye, eyeDiameter, eyeDiameter);
   triangle(xNoseBridge, yNoseBridge, xLeftNostril, yLeftNostril, xRightNostril, yRightNostril);
