@@ -1,4 +1,7 @@
 //Global Variables
+PImage pic1;
+float imageX1, imageY1, imageWidth1, imageHeight1, imageLargerDimension1, imageSmallerDimension1, imageWidthRatio1=0.0, imageHeightRatio1=0.0;
+float picWidthAdjusted1, picHeightAdjusted1;
 float xFace, yFace, widthDiameterFace, heightDiameterFace, faceRadius, smallerDimension, xCenter;
 float xLeftEye, yLeftEye, xRightEye, yRightEye, eyeWidth, eyeHeight;
 float xLeftIris, yLeftIris, xRightIris, yRightIris, irisDiameter;
@@ -13,6 +16,7 @@ int thack=30;
 float xMeasle, yMeasle, measleDiameter;
 color resetWhite=#FFFFFF, lightred=#F55E72, black=#000000; //similar to int declaration
 color backgroundColor;
+Boolean widthLarger1=false, heightLarger1=false;
 Boolean nightMode =false;
 //
 void populationVariables () {
@@ -29,11 +33,11 @@ void populationVariables () {
   widthDiameterFace = smallerDimension*1/1.3;
   heightDiameterFace = smallerDimension*1/1.3;
   //
-  pic1= loadImage("../Images Used/Landscape & Square/brain.jpeg"); //Dimensions: width 800, height 450
+  pic1= loadImage("../Images Used/Untitled design.png"); //Dimensions: width 200, height 64
   //Dimensions found by right click image / get info
   //Algorithm: Find the larger dimension for aspect ratio (comparison of two numbers)
-  int picWidth1 = 800;
-  int picHeight1 = 450;
+  int picWidth1 = 200;
+  int picHeight1 = 64;
   //
   if ( picWidth1 >= picHeight1 ) {
     //True if Landscape or Square
@@ -49,26 +53,10 @@ void populationVariables () {
   //Note: println also verifies decimal places, complier will truncate
   println(imageSmallerDimension1, imageLargerDimension1, widthLarger1, heightLarger1); //Verify variables details
   //
-  //Aspect Ratio
-  //Note: single line IFs can be summarized into IF-ELSE or IF-ELSEIF-ELSE
-  //Computer chooses which formulae to execute
-  if ( widthLarger1 == true ) imageWidthRatio1 = imageLargerDimension1 / imageLargerDimension1;
-  if ( widthLarger1 == true ) imageHeightRatio1 = imageSmallerDimension1 / imageLargerDimension1;
-  if ( heightLarger1 == true ) imageWidthRatio1 = imageSmallerDimension1 / imageLargerDimension1;
-  if ( heightLarger1 == true ) imageHeightRatio1 = imageLargerDimension1 / imageLargerDimension1;
-  //Note:
-  //Answers must be between 0 & 1 (decimal)
-  //Ratio 1.0 similar to style="width: 100%"
-  //Ratio of 0-1 similar to style="height: auto"
-  //
-  imageX1 = width*0;
-  imageY1 = height*0;
-  imageWidth1 = (width-1); //CANVAS (0,0) means point doesn't match to rectangle, missing outline on 2 sides
-  imageHeight1 = (height-1);
-  //
-  picWidthAdjusted1 = imageWidth1*imageWidthRatio1;
-  picHeightAdjusted1 = imageHeight1*imageHeightRatio1; //*imageHeightRatio1
-  println(imageX1, imageY1, picWidthAdjusted1, picHeightAdjusted1); //Note: println also verifies decimal places, complier will truncate
+  imageX1 = xCenter-smallerDimension*1/4;
+  imageY1 = yCenter+smallerDimension*1/4;
+  imageWidth1 = smallerDimension*1/4; //CANVAS (0,0) means point doesn't match to rectangle, missing outline on 2 sides
+  imageHeight1 = smallerDimension*1/8;
   //
   xLeftEye = xCenter-smallerDimension*1/6.5;
   yLeftEye = yCenter-smallerDimension*1/6;
