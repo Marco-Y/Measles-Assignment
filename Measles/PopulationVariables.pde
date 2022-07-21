@@ -29,6 +29,47 @@ void populationVariables () {
   widthDiameterFace = smallerDimension*1/1.3;
   heightDiameterFace = smallerDimension*1/1.3;
   //
+  pic1= loadImage("../Images Used/Landscape & Square/brain.jpeg"); //Dimensions: width 800, height 450
+  //Dimensions found by right click image / get info
+  //Algorithm: Find the larger dimension for aspect ratio (comparison of two numbers)
+  int picWidth1 = 800;
+  int picHeight1 = 450;
+  //
+  if ( picWidth1 >= picHeight1 ) {
+    //True if Landscape or Square
+    imageLargerDimension1 = picWidth1;
+    imageSmallerDimension1 = picHeight1;
+    widthLarger1 = true;
+  } else {
+    //False if Portrait
+    imageLargerDimension1 = picHeight1;
+    imageSmallerDimension1 = picWidth1;
+    heightLarger1 = true;
+  } //End Image Dimension Comparison
+  //Note: println also verifies decimal places, complier will truncate
+  println(imageSmallerDimension1, imageLargerDimension1, widthLarger1, heightLarger1); //Verify variables details
+  //
+  //Aspect Ratio
+  //Note: single line IFs can be summarized into IF-ELSE or IF-ELSEIF-ELSE
+  //Computer chooses which formulae to execute
+  if ( widthLarger1 == true ) imageWidthRatio1 = imageLargerDimension1 / imageLargerDimension1;
+  if ( widthLarger1 == true ) imageHeightRatio1 = imageSmallerDimension1 / imageLargerDimension1;
+  if ( heightLarger1 == true ) imageWidthRatio1 = imageSmallerDimension1 / imageLargerDimension1;
+  if ( heightLarger1 == true ) imageHeightRatio1 = imageLargerDimension1 / imageLargerDimension1;
+  //Note:
+  //Answers must be between 0 & 1 (decimal)
+  //Ratio 1.0 similar to style="width: 100%"
+  //Ratio of 0-1 similar to style="height: auto"
+  //
+  imageX1 = width*0;
+  imageY1 = height*0;
+  imageWidth1 = (width-1); //CANVAS (0,0) means point doesn't match to rectangle, missing outline on 2 sides
+  imageHeight1 = (height-1);
+  //
+  picWidthAdjusted1 = imageWidth1*imageWidthRatio1;
+  picHeightAdjusted1 = imageHeight1*imageHeightRatio1; //*imageHeightRatio1
+  println(imageX1, imageY1, picWidthAdjusted1, picHeightAdjusted1); //Note: println also verifies decimal places, complier will truncate
+  //
   xLeftEye = xCenter-smallerDimension*1/6.5;
   yLeftEye = yCenter-smallerDimension*1/6;
   xRightEye = xCenter+smallerDimension*1/6.5;

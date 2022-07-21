@@ -1,4 +1,5 @@
 float quitX, quitY, quitButtonWidth, quitButtonHeight;
+PImage pic1;
 color green=#0EFF03, brown=#954C48, waterColor=#b9dbe1, resetButtonColor=#FFFFFF, buttonFill; //Not night mode friendly colors
 int centeringButtonWidth = width*1/4;
 int centeringButtonHeight = height*1/4;
