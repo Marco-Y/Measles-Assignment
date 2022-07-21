@@ -2,12 +2,15 @@
 String title = "Measles Simulator";
 String quitText = "Quit";
 String stopText = "Stop";
+String startText = "Press E to start";
 float titleX, titleY, titleWidth, titleHeight, titleRadii;
 PFont titleFont;
 float quitTextX, quitTextY, quitTextWidth, quitTextHeight;
 PFont quitTextFont;
 float stopTextX, stopTextY, stopTextWidth, stopTextHeight;
 PFont stopTextFont;
+float startTextX, startTextY, startTextWidth, startTextHeight;
+PFont startTextFont;
 color red=#FF0022, resetDefaultInk=#FFFFFF; // not nightMode friendly
 //
 void titleText() {
@@ -39,7 +42,7 @@ void titleText() {
 }//End titleText
 //
 void quitText() {
-  //Populaion
+  //Population
   quitTextX = xCenter - smallerDimension/1.49;
   quitTextY = yCenter - smallerDimension/1.97;
   quitTextWidth = smallerDimension*1/5;
@@ -53,7 +56,7 @@ void quitText() {
 }//End quitText
 //
 void stopText() {
-  //Populaion
+  //Population
   stopTextX = xCenter + smallerDimension*1/2.12;
   stopTextY = quitTextY;
   stopTextWidth = smallerDimension*1/5;
@@ -65,3 +68,16 @@ void stopText() {
   textFont(stopTextFont, stopTextSize);
   text(stopText, stopTextX, stopTextY, stopTextWidth, stopTextHeight);
 }//End stopText
+//
+void startText() {
+  //Population
+  startTextX = xCenter;
+  startTextY = yCenter + smallerDimension*1/3;
+  startTextWidth = smallerDimension*1/4;
+  startTextHeight = smallerDimension*1/10;
+  startTextFont = createFont("TimesNewRomanPSMT-BoldItalicMT")
+  int startTextSize = 25;
+  //
+  textAlign(CENTER, CENTER);
+  textFont(startTextFont
+}//End startText

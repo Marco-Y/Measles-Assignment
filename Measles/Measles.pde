@@ -45,6 +45,7 @@ void setup() {
 }//End setup
 //
 void draw() {
+  noLoop();
   //Hover-over
   if (mouseX> quitX && mouseX< quitX+quitButtonWidth && mouseY> quitY && mouseY< quitY+quitButtonHeight) {
     buttonFill = green;
@@ -62,10 +63,10 @@ void draw() {
   } else {
     buttonFill = red;
   }
+  fill(buttonFill);
   rect(stopX, stopY, stopButtonWidth, stopButtonHeight);
-  fill(red);
-  //
   fill(resetButtonColor);
+  //
   titleText();
   quitText();
   stopText();
@@ -118,7 +119,7 @@ void draw() {
 //
 void keyPressed() {
   if (key=='q' || key=='Q')
-  if (key==' ') loop();
+  if (key=='e' || key=='s') loop();
   if (key=='s' || key=='S') noLoop();
 }//End keyPressed
 //
