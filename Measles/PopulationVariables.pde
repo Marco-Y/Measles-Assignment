@@ -2,7 +2,7 @@
 PImage pic1;
 float imageX1, imageY1, imageWidth1, imageHeight1, imageLargerDimension1, imageSmallerDimension1, imageWidthRatio1=0.0, imageHeightRatio1=0.0;
 float picWidthAdjusted1, picHeightAdjusted1;
-float xFace, yFace, widthDiameterFace, heightDiameterFace, faceRadius, smallerDimension, xCenter;
+float xFace, yFace, widthDiameterFace, heightDiameterFace, faceRadius, smallerDimension, xCenter, yCenter;
 float xLeftEye, yLeftEye, xRightEye, yRightEye, eyeWidth, eyeHeight;
 float xLeftIris, yLeftIris, xRightIris, yRightIris, irisDiameter;
 float xLeftPupil, yLeftPupil, xRightPupil, yRightPupil, pupilDiameter;
@@ -112,10 +112,17 @@ void populationVariables () {
   xRightMouth = xRightEye;
   yRightMouth = yLeftMouth;
   //
-  faceRadius = smallerDimension/2;
-  quitX = xCenter - smallerDimension/1.7;
-  quitY = yCenter - smallerDimension/2.2;
+  faceRadius = smallerDimension*1/2.6;
+  //
+  //Quit Button
+  quitX = xCenter - smallerDimension/1.5;
+  quitY = yCenter - smallerDimension/2;
   quitButtonWidth = smallerDimension*1/5;
   quitButtonHeight = smallerDimension*1/10;
   //
+  //Stop Button
+  stopX = xCenter + smallerDimension/2.3;
+  stopY = faceRadius;
+  stopButtonWidth = smallerDimension*1/5;
+  stopButtonHeight = smallerDimension*1/10;
 }

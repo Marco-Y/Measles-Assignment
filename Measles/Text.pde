@@ -1,13 +1,14 @@
 //Global Variables
 String title = "Measles Simulator";
 String quitText = "Quit";
+String stopText = "Stop";
 float titleX, titleY, titleWidth, titleHeight, titleRadii;
 PFont titleFont;
 float quitTextX, quitTextY, quitTextWidth, quitTextHeight;
 PFont quitTextFont;
+float stopTextX, stopTextY, stopTextWidth, stopTextHeight;
+PFont stopTextFont;
 color red=#FF0022, resetDefaultInk=#FFFFFF; // not nightMode friendly
-int titleSize;
-int quitTextSize;
 //
 void titleText() {
   //Population
@@ -19,8 +20,8 @@ void titleText() {
   //
   //Single Executed Code
   //Fonts rom OS (Operating System)
-  String[] fontList = PFont.list(); //To list all fonts available on OS
-  printArray(fontList); //For Listing all possible fonts to choose from, then createFont
+  //String[] fontList = PFont.list(); //To list all fonts available on OS
+  //printArray(fontList); //For Listing all possible fonts to choose from, then createFont
   titleFont = createFont("Impact", 281); //Verify the font exists in Processing.JAVA
   // Tools / Create Font / Find font in list to verify / DO NOT PRESS "OK" (BUG)
   //
@@ -31,26 +32,42 @@ void titleText() {
   fill(red); //Ink, hexidecimal copied from Color Selector
   textAlign( CENTER, CENTER ); //Align X*Y, see Processing.org / Reference
   //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
-  titleSize = 50; //Change this number until it fits
+  int titleSize = 50; //Change this number until it fits
   textFont(titleFont, titleSize);
   text(title, titleX, titleY, titleWidth, titleHeight);
   fill(resetDefaultInk);
 }
 //
-quitY = yCenter - smallerDimension/2.2;
-  quitButtonWidth = smallerDimension*1/5;
-  quitButtonHeight = smallerDimension*1/10;
-  
 void quitText() {
   //Populaion
-  quitTextX = xCenter - smallerDimension/1.7;
-  quitTextY = yCenter - smallerDimension/2.2;
-  quitTextWidth = width*2.1/5;
-  quitTextHeight = height*1/12;
+  quitTextX = xCenter - smallerDimension/1.49;
+  quitTextY = yCenter - smallerDimension/1.97;
+  quitTextWidth = smallerDimension*1/5;
+  quitTextHeight = smallerDimension*1/10;
   quitTextFont = createFont("TimesNewRomanPSMT", 603);
-  quitTextSize = 30;
+  int quitTextSize = 50;
   //
   textAlign(CENTER, CENTER);
   textFont(quitTextFont, quitTextSize);
   text(quitText, quitTextX, quitTextY, quitTextWidth, quitTextHeight);
 }
+//
+void stopText() {
+  //Populaion
+  stopTextX = xCenter + smallerDimension/2.3;
+  stopTextY = faceRadius;
+  stopTextWidth = smallerDimension*1/5;
+  stopTextHeight = smallerDimension*1/10;
+  stopTextFont = createFont("TimesNewRomanPSMT", 603);
+  int stopTextSize = 50;
+  //
+  textAlign(CENTER, CENTER);
+  textFont(stopTextFont, stopTextSize);
+  text(stopText, stopTextX, stopTextY, stopTextWidth, stopTextHeight);
+}
+
+
+/*  stopX = xCenter - smallerDimension/1.6;
+  stopY = faceRadius;
+  stopButtonWidth = smallerDimension*1/5;
+  stopButtonHeight = smallerDimension*1/10*/

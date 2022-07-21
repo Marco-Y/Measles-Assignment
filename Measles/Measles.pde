@@ -1,5 +1,6 @@
 //Global Variables
 float quitX, quitY, quitButtonWidth, quitButtonHeight;
+float stopX, stopY, stopButtonWidth, stopButtonHeight;
 color green=#0EFF03, brown=#954C48, waterColor=#b9dbe1, resetButtonColor=#FFFFFF, buttonFill; //Not night mode friendly colors
 int centeringButtonWidth = width*1/4;
 int centeringButtonHeight = height*1/4;
@@ -8,7 +9,7 @@ void setup() {
   size(1000, 750); //Landscape
   //
   xCenter = width/2;
-  float yCenter = height/2;
+  yCenter = height/2;
   println (width, height, displayWidth, displayHeight);
   populationVariables();
   //
@@ -55,10 +56,13 @@ void draw() {
   image(pic1, imageX1, imageY1, imageWidth1, imageHeight1);
   //
   rect(quitX, quitY, quitButtonWidth, quitButtonHeight);
-  fill(resetButtonColor);
+  fill(red);
   //
+  rect(stopX, stopY, stopButtonWidth, stopButtonHeight);
+  fill(resetButtonColor);
   titleText();
   quitText();
+  stopText();
   fill(lightred);
   //
   ellipse(xLeftEye, yLeftEye, eyeWidth, eyeHeight);
@@ -93,7 +97,7 @@ void draw() {
   strokeWeight(1);
   //
   xMeasle = random(xCenter-faceRadius, xCenter+faceRadius);
-  yMeasle = random(smallerDimension); //if zero is first, then default
+  yMeasle = random(yCenter-faceRadius, yCenter+faceRadius); //if zero is first, then default
   fill(lightred);
   noStroke();
   measleDiameter = random(smallerDimension* 1/random(25, 75));
