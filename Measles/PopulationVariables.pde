@@ -40,5 +40,9 @@ void populationVariables () {
   xRightMouth = xRightEye;
   yRightMouth = yLeftMouth;
   faceRadius = smallerDimension/2;
+  quitX = centerX - centeringButtonWidth;
+  quitY = centerY - centeringButtonHeight;
+  quitButtonWidth = centerX;
+  quitButtonHeight = centerY;
   //
 }

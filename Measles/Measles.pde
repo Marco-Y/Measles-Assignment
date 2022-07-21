@@ -1,20 +1,34 @@
 //Boolean measleDraw=false;
 //turn measle into background color if cross the circle
 //
+float quitX, quitY, quitButtonWidth, quitButtonHeight;
+color green=#0EFF03, resetButtonColor=#FFFFFF, buttonFill; //Not night mode friendly colors
+int centerX = width/2;
+int centerY = height/2;
+int centeringButtonWidth = width*1/4;
+int centeringButtonHeight = height*1/4;
 void setup() {
   //CANVAS will be added later
   size(1000, 750); //Landscape
   //
   populationVariables();
+  //
   color backgroundColor = ( nightMode==true ) ? color( random(255), random(255), 0 ) : color( random(255), random(255), random(255) ) ; //ternary operator similar to IF-Else
   background( backgroundColor );
   ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
-  quitButton();
   //
 }//End setup
 //
-void draw()
-{
+void draw() {
+  //Hover-over
+  if (mouseX> quitX && mouseX< quitX+quitButtonWidth && mouseY> quitY && mouseY< quitY+quitButtonHeight) {
+    buttonFill = green;
+  } else {
+    buttonFill = red;
+  }//End Hover-over
+  fill(buttonFill); //2-colors to start , remember nightMode adds choice
+  rect(quitX, quitY, quitButtonWidth, quitButtonHeight);
+  fill(resetButtonColor);
   titleText();
   ellipse(xLeftEye, yLeftEye, eyeDiameter, eyeDiameter);
   ellipse(xRightEye, yRightEye, eyeDiameter, eyeDiameter);
@@ -47,7 +61,7 @@ void mousePressed() {
     background( backgroundColor );
     //rect(xCenter-faceRadius, 0, 2*faceRadius, smallerDimension);
     ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
-    if (mouseX> QuitX && mouseX< QuitX+ButtonWidth && mouseY> QuitY && mouseY< QuitY+ButtonHeight) exit();
+    //
   }//End Left Mouse Button
   //
   if ( mouseButton == RIGHT ) { //Night Mode TRUE
