@@ -1,5 +1,5 @@
 float quitX, quitY, quitButtonWidth, quitButtonHeight;
-color green=#0EFF03, resetButtonColor=#FFFFFF, buttonFill; //Not night mode friendly colors
+color green=#0EFF03, brown=#954C48, waterColor=#b9dbe1, resetButtonColor=#FFFFFF, buttonFill; //Not night mode friendly colors
 int centeringButtonWidth = width*1/4;
 int centeringButtonHeight = height*1/4;
 void setup() {
@@ -27,8 +27,22 @@ void draw() {
   //
   titleText();
   //
-  ellipse(xLeftEye, yLeftEye, eyeDiameter, eyeDiameter);
-  ellipse(xRightEye, yRightEye, eyeDiameter, eyeDiameter);
+  ellipse(xLeftEye, yLeftEye, eyeWidth, eyeHeight);
+  ellipse(xRightEye, yRightEye, eyeWidth, eyeHeight);
+  fill(brown);
+  //
+  ellipse(xLeftIris, yLeftIris, irisDiameter, irisDiameter);
+  ellipse(xRightIris, yRightIris, irisDiameter, irisDiameter);
+  fill(black);
+  //
+  ellipse(xLeftPupil, yLeftPupil, pupilDiameter, pupilDiameter);
+  ellipse(xRightPupil, yRightPupil, pupilDiameter, pupilDiameter);
+  fill(resetWhite);
+  //
+  ellipse(xLeftEyeLight, yLeftEyeLight, eyelightDiameter, eyelightDiameter);
+  ellipse(xRightEyeLight, yRightEyeLight, eyelightDiameter, eyelightDiameter);
+  ellipse(xLeftLight, yLeftLight, lightDiameter, lightDiameter);
+  ellipse(xRightLight, yRightLight, lightDiameter, lightDiameter);
   triangle(xNoseBridge, yNoseBridge, xLeftNostril, yLeftNostril, xRightNostril, yRightNostril);
   strokeCap(SQUARE); //ROUND (default), PROJECT
   strokeWeight(thack);

@@ -1,11 +1,11 @@
-String title = "Measles Simulator", quitText = "Quit";
+String title = "Measles Simulator";
 float titleX, titleY, titleWidth, titleHeight, titleRadii;
 PFont titleFont;
-float quitTextX, quitTextY, quitTextWidth, quitTextHeight;
-PFont quitTextFont;
+//float quitTextX, quitTextY, quitTextWidth, quitTextHeight;
+//PFont quitTextFont;
 color red=#FF0022, resetDefaultInk=#FFFFFF; // not nightMode friendly
 int titleSize;
-int quitTextSize;
+//int quitTextSize;
 //
 void titleText() {
   //Population
@@ -35,12 +35,11 @@ void titleText() {
   fill(resetDefaultInk);
 }
 
-void quitText() {
+/*void quitText() {
   //Populaion
   quitTextX = width*1.4/5;
   quitTextY = height*1/50;
   quitTextWidth = width*2.1/5;
   quitTextHeight = height*1/12;
   //
-  quitTextFont = createFont("
-  
+  quitTextFont = createFont("*/
