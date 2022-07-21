@@ -1,19 +1,21 @@
+//Global Variables
 float quitX, quitY, quitButtonWidth, quitButtonHeight;
 color green=#0EFF03, brown=#954C48, waterColor=#b9dbe1, resetButtonColor=#FFFFFF, buttonFill; //Not night mode friendly colors
 int centeringButtonWidth = width*1/4;
 int centeringButtonHeight = height*1/4;
 void setup() {
-  //CANVAS will be added later
+  //Display Geometry
   size(1000, 750); //Landscape
   //
   xCenter = width/2;
   float yCenter = height/2;
+  println (width, height, displayWidth, displayHeight);
   populationVariables();
   //
   //Dimensions found by right click image / get info
   //Algorithm: Find the larger dimension for aspect ratio (comparison of two numbers)
-  int picWidth1 = 200;
-  int picHeight1 = 64;
+  int picWidth1 = 1000;
+  int picHeight1 = 317;
   //
   if ( picWidth1 >= picHeight1 ) {
     //True if Landscape or Square
@@ -49,8 +51,9 @@ void draw() {
     buttonFill = red;
   }//End Hover-over
   fill(buttonFill); //2-colors to start , remember nightMode adds choice
-  pic1= loadImage("../Images Used/Untitled design.png"); 
+  pic1= loadImage("../Images Used/kindpng_7571372.png");
   image(pic1, imageX1, imageY1, imageWidth1, imageHeight1);
+  //
   rect(quitX, quitY, quitButtonWidth, quitButtonHeight);
   fill(resetButtonColor);
   //
@@ -79,13 +82,13 @@ void draw() {
   line (xLeftTears, yLeftTears, xLeftEndTears, yLeftEndTears);
   line (xRightTears, yRightTears, xRightEndTears, yRightEndTears);
   fill(resetWhite);
-  stroke(1); 
+  stroke(1);
   //
   triangle(xNoseBridge, yNoseBridge, xLeftNostril, yLeftNostril, xRightNostril, yRightNostril);
   strokeCap(SQUARE); //ROUND (default), PROJECT
   strokeWeight(thack);
   //
-  line (xLeftMouth, yLeftMouth, xRightMouth, yRightMouth); //CHANGE TO EYEBROWS 
+  line (xLeftMouth, yLeftMouth, xRightMouth, yRightMouth); //CHANGE TO EYEBROWS
   strokeWeight(1);
   //
   xMeasle = random(xCenter-faceRadius, xCenter+faceRadius);

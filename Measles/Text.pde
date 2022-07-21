@@ -1,11 +1,13 @@
+//Global Variables
 String title = "Measles Simulator";
+String quitText = "Quit";
 float titleX, titleY, titleWidth, titleHeight, titleRadii;
 PFont titleFont;
-//float quitTextX, quitTextY, quitTextWidth, quitTextHeight;
-//PFont quitTextFont;
+float quitTextX, quitTextY, quitTextWidth, quitTextHeight;
+PFont quitTextFont;
 color red=#FF0022, resetDefaultInk=#FFFFFF; // not nightMode friendly
 int titleSize;
-//int quitTextSize;
+int quitTextSize;
 //
 void titleText() {
   //Population
@@ -17,8 +19,8 @@ void titleText() {
   //
   //Single Executed Code
   //Fonts rom OS (Operating System)
-  //String[] fontList = PFont.list(); //To list all fonts available on OS
-  //printArray(fontList); //For Listing all possible fonts to choose from, then createFont
+  String[] fontList = PFont.list(); //To list all fonts available on OS
+  printArray(fontList); //For Listing all possible fonts to choose from, then createFont
   titleFont = createFont("Impact", 281); //Verify the font exists in Processing.JAVA
   // Tools / Create Font / Find font in list to verify / DO NOT PRESS "OK" (BUG)
   //
@@ -35,11 +37,16 @@ void titleText() {
   fill(resetDefaultInk);
 }
 
-/*void quitText() {
+void quitText() {
   //Populaion
   quitTextX = width*1.4/5;
   quitTextY = height*1/50;
   quitTextWidth = width*2.1/5;
   quitTextHeight = height*1/12;
+  quitTextFont = createFont("TimesNewRomanPSMT", 603);
+  quitTextSize = 30;
   //
-  quitTextFont = createFont("*/
+  textAlign(CENTER, CENTER);
+  textFont(quitTextFont, quitTextSize);
+  text(quitText, quitTextX, quitTextY, quitTextWidth, quitTextHeight);
+}
