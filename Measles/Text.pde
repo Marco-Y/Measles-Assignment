@@ -36,7 +36,7 @@ void titleText() {
   textFont(titleFont, titleSize);
   text(title, titleX, titleY, titleWidth, titleHeight);
   fill(resetDefaultInk);
-}
+}//End titleText
 //
 void quitText() {
   //Populaion
@@ -50,12 +50,12 @@ void quitText() {
   textAlign(CENTER, CENTER);
   textFont(quitTextFont, quitTextSize);
   text(quitText, quitTextX, quitTextY, quitTextWidth, quitTextHeight);
-}
+}//End quitText
 //
 void stopText() {
   //Populaion
-  stopTextX = xCenter + smallerDimension/2.3;
-  stopTextY = faceRadius;
+  stopTextX = xCenter + smallerDimension*1/2.12;
+  stopTextY = quitTextY;
   stopTextWidth = smallerDimension*1/5;
   stopTextHeight = smallerDimension*1/10;
   stopTextFont = createFont("TimesNewRomanPSMT", 603);
@@ -64,10 +64,4 @@ void stopText() {
   textAlign(CENTER, CENTER);
   textFont(stopTextFont, stopTextSize);
   text(stopText, stopTextX, stopTextY, stopTextWidth, stopTextHeight);
-}
-
-
-/*  stopX = xCenter - smallerDimension/1.6;
-  stopY = faceRadius;
-  stopButtonWidth = smallerDimension*1/5;
-  stopButtonHeight = smallerDimension*1/10*/
+}//End stopText

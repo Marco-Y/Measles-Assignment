@@ -1,6 +1,7 @@
 //Global Variables
 float quitX, quitY, quitButtonWidth, quitButtonHeight;
 float stopX, stopY, stopButtonWidth, stopButtonHeight;
+float restartX, restartY, restartButtonWidth, restartButtonHeight;
 color green=#0EFF03, brown=#954C48, waterColor=#b9dbe1, resetButtonColor=#FFFFFF, buttonFill; //Not night mode friendly colors
 int centeringButtonWidth = width*1/4;
 int centeringButtonHeight = height*1/4;
@@ -37,7 +38,6 @@ void setup() {
   imageWidth1 = smallerDimension*1/3; //CANVAS (0,0) means point doesn't match to rectangle, missing outline on 2 sides
   imageHeight1 = smallerDimension*1/10;
   //
-  //
   color backgroundColor = ( nightMode==true ) ? color( random(255), random(255), 0 ) : color( random(255), random(255), random(255) ) ; //ternary operator similar to IF-Else
   background( backgroundColor );
   ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
@@ -56,14 +56,22 @@ void draw() {
   image(pic1, imageX1, imageY1, imageWidth1, imageHeight1);
   //
   rect(quitX, quitY, quitButtonWidth, quitButtonHeight);
+  //
+  if (mouseX>stopX && mouseX<stopX+smallerDimension*1/5 && mouseY>stopY && mouseY<stopY+smallerDimension*1/10) {
+    buttonFill = green;
+  } else {
+    buttonFill = red;
+  }
+  rect(stopX, stopY, stopButtonWidth, stopButtonHeight);
   fill(red);
   //
-  rect(stopX, stopY, stopButtonWidth, stopButtonHeight);
   fill(resetButtonColor);
   titleText();
   quitText();
   stopText();
   fill(lightred);
+  //
+  //
   //
   ellipse(xLeftEye, yLeftEye, eyeWidth, eyeHeight);
   ellipse(xRightEye, yRightEye, eyeWidth, eyeHeight);
@@ -109,18 +117,18 @@ void draw() {
 }//End draw
 //
 void keyPressed() {
+  if (key=='q' || key=='Q')
+  if (key==' ') loop();
+  if (key=='s' || key=='S') noLoop();
 }//End keyPressed
 //
 void mousePressed() {
   //Technically, there are 4 ways to code a mouse button press
   //
   if ( mouseButton == LEFT ) { //Night Mode FALSE
-    backgroundColor = color( random(255), random(255), random(255) ) ;
-    background( backgroundColor );
-    //rect(xCenter-faceRadius, 0, 2*faceRadius, smallerDimension);
-    ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
-    //
+  if (mouseX> quitX && mouseX< quitX+quitButtonWidth && mouseY> quitY && mouseY< quitY+quitButtonHeight) exit();
   }//End Left Mouse Button
+  if (mouseX>stopX && mouseX<stopX+smallerDimension*1/5 && mouseY>stopY && mouseY<stopY+smallerDimension*1/10) noLoop();
   //
   if ( mouseButton == RIGHT ) { //Night Mode TRUE
     backgroundColor = color( random(255), random(255), 0 );

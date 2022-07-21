@@ -121,8 +121,8 @@ void populationVariables () {
   quitButtonHeight = smallerDimension*1/10;
   //
   //Stop Button
-  stopX = xCenter + smallerDimension/2.3;
-  stopY = faceRadius;
+  stopX = xCenter + smallerDimension*1/2.12;
+  stopY = yCenter - smallerDimension/2;
   stopButtonWidth = smallerDimension*1/5;
   stopButtonHeight = smallerDimension*1/10;
 }
