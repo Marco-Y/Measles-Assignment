@@ -26,6 +26,7 @@ void draw() {
   fill(resetButtonColor);
   //
   titleText();
+  fill(lightred);
   //
   ellipse(xLeftEye, yLeftEye, eyeWidth, eyeHeight);
   ellipse(xRightEye, yRightEye, eyeWidth, eyeHeight);
@@ -43,6 +44,14 @@ void draw() {
   ellipse(xRightEyeLight, yRightEyeLight, eyelightDiameter, eyelightDiameter);
   ellipse(xLeftLight, yLeftLight, lightDiameter, lightDiameter);
   ellipse(xRightLight, yRightLight, lightDiameter, lightDiameter);
+  stroke(waterColor);
+  strokeWeight(5);
+  //
+  line (xLeftTears, yLeftTears, xLeftEndTears, yLeftEndTears);
+  line (xRightTears, yRightTears, xRightEndTears, yRightEndTears);
+  fill(resetWhite);
+  stroke(1); 
+  //
   triangle(xNoseBridge, yNoseBridge, xLeftNostril, yLeftNostril, xRightNostril, yRightNostril);
   strokeCap(SQUARE); //ROUND (default), PROJECT
   strokeWeight(thack);

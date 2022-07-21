@@ -5,6 +5,8 @@ float xLeftIris, yLeftIris, xRightIris, yRightIris, irisDiameter;
 float xLeftPupil, yLeftPupil, xRightPupil, yRightPupil, pupilDiameter;
 float xLeftEyeLight, yLeftEyeLight, xRightEyeLight, yRightEyeLight, eyelightDiameter;
 float xLeftLight, yLeftLight, xRightLight, yRightLight, lightDiameter;
+float xLeftTears, yLeftTears, xLeftEndTears, yLeftEndTears;
+float xRightTears, yRightTears, xRightEndTears, yRightEndTears;
 float xNoseBridge, yNoseBridge, xLeftNostril, yLeftNostril, xRightNostril, yRightNostril;
 float xLeftMouth, yLeftMouth, xRightMouth, yRightMouth;
 int thack=30;
@@ -35,7 +37,7 @@ void populationVariables () {
   eyeHeight = smallerDimension*1/12;
   //
   xLeftIris = xCenter-smallerDimension*1/6.4;
-  yLeftIris = yCenter-smallerDimension*1/6; 
+  yLeftIris = yCenter-smallerDimension*1/6;
   xRightIris = xCenter+smallerDimension*1/6.4;
   yRightIris = yLeftIris;
   irisDiameter = smallerDimension*1/12;
@@ -57,6 +59,16 @@ void populationVariables () {
   xRightLight = xCenter+smallerDimension*1/7.3;
   yRightLight = yLeftLight;
   lightDiameter = smallerDimension*1/80;
+  //
+  xLeftTears = xLeftEyeLight;
+  yLeftTears = yCenter-smallerDimension*1/8;
+  xLeftEndTears = xLeftEyeLight;
+  yLeftEndTears = yCenter+smallerDimension*1/8;
+  //
+  xRightTears = xRightEyeLight;
+  yRightTears = yCenter-smallerDimension*1/8;
+  xRightEndTears = xRightEyeLight;
+  yRightEndTears = yCenter+smallerDimension*1/8;
   //
   xNoseBridge = xCenter;
   yNoseBridge = yCenter-smallerDimension*1/5;
