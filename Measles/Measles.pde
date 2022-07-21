@@ -58,6 +58,7 @@ void draw() {
   fill(resetButtonColor);
   //
   titleText();
+  quitText();
   fill(lightred);
   //
   ellipse(xLeftEye, yLeftEye, eyeWidth, eyeHeight);

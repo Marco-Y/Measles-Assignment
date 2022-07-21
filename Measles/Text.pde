@@ -36,11 +36,15 @@ void titleText() {
   text(title, titleX, titleY, titleWidth, titleHeight);
   fill(resetDefaultInk);
 }
-
+//
+quitY = yCenter - smallerDimension/2.2;
+  quitButtonWidth = smallerDimension*1/5;
+  quitButtonHeight = smallerDimension*1/10;
+  
 void quitText() {
   //Populaion
-  quitTextX = width*1.4/5;
-  quitTextY = height*1/50;
+  quitTextX = xCenter - smallerDimension/1.7;
+  quitTextY = yCenter - smallerDimension/2.2;
   quitTextWidth = width*2.1/5;
   quitTextHeight = height*1/12;
   quitTextFont = createFont("TimesNewRomanPSMT", 603);
