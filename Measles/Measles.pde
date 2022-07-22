@@ -42,8 +42,15 @@ void setup() {
   imageWidth1 = smallerDimension*1/3; //CANVAS (0,0) means point doesn't match to rectangle, missing outline on 2 sides
   imageHeight1 = smallerDimension*1/10;
   //
-  color backgroundColor = ( nightMode==true ) ? color( random(255), random(255), 0 ) : color( random(255), random(255), random(255) ) ; //ternary operator similar to IF-Else
-  background( backgroundColor );
+  //nightMode setup
+  //
+  if (h>=21 || h<=7) {
+    color backgroundColor = ( nightMode==true ) ? color( random(255), random(255), 0 ) : color( random(255), random(255), random(255) ) ; //ternary operator similar to IF-Else
+    background( backgroundColor );
+    println("nightMode ON");
+  } else {
+    println("nightMode OFF");
+  }
   ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
   noLoop();
   //

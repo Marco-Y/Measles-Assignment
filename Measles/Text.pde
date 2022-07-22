@@ -2,7 +2,7 @@
 String title = "Measles Simulator";
 String quitText = "Quit";
 String stopText = "Stop";
-String startText = "Press E/Tap Left Side to start";
+String startText = "Press E/Tap Left Side to start, \n Right Click to reset";
 float titleX, titleY, titleWidth, titleHeight, titleRadii;
 PFont titleFont;
 float quitTextX, quitTextY, quitTextWidth, quitTextHeight;
