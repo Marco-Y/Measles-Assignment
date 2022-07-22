@@ -14,7 +14,7 @@ float xLeftTears, yLeftTears, xLeftEndTears, yLeftEndTears;
 float xRightTears, yRightTears, xRightEndTears, yRightEndTears;
 float xNoseBridge, yNoseBridge, xLeftNostril, yLeftNostril, xRightNostril, yRightNostril;
 float xLeftMoustache, yLeftMoustache, xRightMoustache, yRightMoustache;
-int thack=20;
+int thack=15;
 float xMeasle, yMeasle, measleDiameter;
 Boolean widthLarger1=false, heightLarger1=false;
 //

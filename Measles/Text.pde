@@ -1,8 +1,8 @@
 //Global Variables
 color red=#FF0022, resetDefaultInk=#FFFFFF; // not nightMode friendly
 String title = "Measles Simulator";
-String quitText = "Quit";
-String stopText = "Stop";
+String quitText = "Quit (Q)";
+String stopText = "Stop (S)";
 String startText = "Press E/Tap Left Side to start, \n Right Click to reset";
 float titleX, titleY, titleWidth, titleHeight, titleRadii;
 PFont titleFont;
@@ -48,7 +48,7 @@ void quitText() {
   quitTextWidth = smallerDimension*1/5;
   quitTextHeight = smallerDimension*1/10;
   quitTextFont = createFont("TimesNewRomanPSMT", 603);
-  int quitTextSize = 50;
+  int quitTextSize = 35;
   //
   textAlign(CENTER, CENTER);
   textFont(quitTextFont, quitTextSize);
@@ -62,7 +62,7 @@ void stopText() {
   stopTextWidth = smallerDimension*1/5;
   stopTextHeight = smallerDimension*1/10;
   stopTextFont = createFont("TimesNewRomanPSMT", 603);
-  int stopTextSize = 50;
+  int stopTextSize = 35;
   //
   textAlign(CENTER, CENTER);
   textFont(stopTextFont, stopTextSize);

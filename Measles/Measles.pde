@@ -1,10 +1,12 @@
 //Global Variables
-color green=#0EFF03, brown=#954C48, waterColor=#b9dbe1, resetButtonColor=#FFFFFF, buttonFill; //Not night mode friendly colors
+color green=#00FF00, brown=#954C48, waterColor=#b9dbe1, resetButtonColor=#FFFFFF, buttonFill; //Not night mode friendly colors
 PImage pic2;
 float imageX2, imageY2, imageWidth2, imageHeight2, imageLargerDimension2, imageSmallerDimension2, imageWidthRatio2=0.0, imageHeightRatio2=0.0;
 float quitX, quitY, quitButtonWidth, quitButtonHeight;
 float stopX, stopY, stopButtonWidth, stopButtonHeight;
 float restartX, restartY, restartButtonWidth, restartButtonHeight;
+float xlength;
+float ylength;
 int centeringButtonWidth = width*1/4;
 int centeringButtonHeight = height*1/4;
 int h = hour();
@@ -40,7 +42,7 @@ void setup() {
   } //End Image Dimension Comparison
   //Note: println also verifies decimal places, complier will truncate
   println("imageSmallerDimension1:", imageSmallerDimension1, "\t imageLargerDimension1:", imageLargerDimension1,
-  "\t widthLarger1:", widthLarger1, " \t heightLarger1:", heightLarger1); //Verify variables details
+    "\t widthLarger1:", widthLarger1, " \t heightLarger1:", heightLarger1); //Verify variables details
   //
   imageX1 = xCenter-smallerDimension*1/6;
   imageY1 = yCenter+smallerDimension*1/5;
@@ -65,7 +67,7 @@ void setup() {
   } //End Image Dimension Comparison
   //Note: println also verifies decimal places, complier will truncate
   println("imageSmallerDimension2:", imageSmallerDimension2, "\t imageLargerDimension2:", imageLargerDimension2,
-  "\t widthLarger2:", widthLarger2, " \t heightLarger2:", heightLarger2); //Verify variables details
+    "\t widthLarger2:", widthLarger2, " \t heightLarger2:", heightLarger2); //Verify variables details
   //
   imageX2 = xCenter-smallerDimension*1/4;
   imageY2 = yCenter-smallerDimension*1/3.3;
@@ -74,14 +76,11 @@ void setup() {
   //
   //nightMode setup
   //
-  if (h>=21 || h<=7) {
-    color backgroundColor = ( nightMode==true ) ? color( random(255), random(255), 0 ) : color( random(255), random(255), random(255) ) ; //ternary operator similar to IF-Else
-    background( backgroundColor );
-    println("nightMode ON");
-  } else {
-    println("nightMode OFF");
-  }
+  backgroundColor = ( nightMode==true ) ? color( random(255), random(255), 0 ) : color( random(255), random(255), random(255) ) ; //ternary operator, similar to IF-Else
+  background( backgroundColor );
+  //
   ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
+  println(xFace, xFace+widthDiameterFace, yFace, yFace+heightDiameterFace);
   noLoop();
   //
 }//End setup
@@ -152,7 +151,30 @@ void draw() {
   //
   xMeasle = random(xCenter-faceRadius, xCenter+faceRadius);
   yMeasle = random(yCenter-faceRadius, yCenter+faceRadius); //if zero is first, then default
-  fill(lightred);
+  //
+  if (xMeasle>xCenter) {
+    xlength= xMeasle-xCenter;
+  } else {
+    xlength=xCenter-xMeasle;
+  }
+  //
+  if (yMeasle>yCenter) {
+    ylength= yMeasle-yCenter;
+  } else {
+    ylength=yCenter-yMeasle;
+  }
+  //
+  float radiusTest = sqrt(sq(xlength)+sq(ylength));
+  //faceRadius
+  if (faceRadius<radiusTest) {
+    //fill(green);
+    fill(backgroundColor);
+  } else {
+    fill(lightred);
+  }
+  //if (xMeasle<radiusTest && yMeasle<radiusTest) {
+  //  fill(lightred);
+  //}
   noStroke();
   measleDiameter = random(smallerDimension* 1/random(25, 75));
   ellipse(xMeasle, yMeasle, measleDiameter, measleDiameter);
@@ -170,12 +192,12 @@ void keyPressed() {
 void mousePressed() {
   //Technically, there are 4 ways to code a mouse button press
   //
-  if ( mouseButton == LEFT ) { //Night Mode FALSE
+  if ( mouseButton == LEFT ) {
     if (mouseX> quitX && mouseX< quitX+quitButtonWidth && mouseY> quitY && mouseY< quitY+quitButtonHeight) exit();
     if (mouseX>stopX && mouseX<stopX+smallerDimension*1/5 && mouseY>stopY && mouseY<stopY+smallerDimension*1/10) noLoop();
   }
   //
-  if (mouseX>0 && mouseX<width-smallerDimension && mouseY>0 && mouseY<height) {
+  if (mouseX>0 && mouseX<width-smallerDimension*1/2 && mouseY>0 && mouseY<height) {
     if (noLoop=true) {
       loop=false;
       loop();
@@ -185,9 +207,9 @@ void mousePressed() {
     }
   }//End Left Mouse button
   //
-  if ( mouseButton == RIGHT ) { //Night Mode TRUE
-    backgroundColor = color( random(255), random(255), 0 );
-    background( backgroundColor );
+  if ( mouseButton == RIGHT ) {
+    color backgroundColor = ( nightMode==true ) ? color(random(255), random(255), 0) : color(random(255), random(255), random(255)) ; //ternary operator similar to IF-Else
+    background(backgroundColor);
     ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
   }//End Right Mouse Button
   //
@@ -201,8 +223,8 @@ void mousePressed() {
    nightMode = false;
    } //End nightMode switch
    //
-   backgroundColour = ( nightMode==true ) ? color( random(255), random(255), 0 ) : color( random(255), random(255), random(255) ) ; //ternary operator, similar to IF-Else
-   background( backgroundColour );
+   backgroundColor = ( nightMode==true ) ? color( random(255), random(255), 0 ) : color( random(255), random(255), random(255) ) ; //ternary operator, similar to IF-Else
+   background( backgroundColor );
    ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
    */
   //
