@@ -7,12 +7,14 @@ float stopX, stopY, stopButtonWidth, stopButtonHeight;
 float restartX, restartY, restartButtonWidth, restartButtonHeight;
 float xlength;
 float ylength;
+float radiusTest;
 int centeringButtonWidth = width*1/4;
 int centeringButtonHeight = height*1/4;
 int h = hour();
 Boolean noLoop=false, loop=false;
 Boolean nightMode=false;
 Boolean widthLarger2=false, heightLarger2=false;
+Boolean firstClick=true;
 //
 void setup() {
   //Display Geometry
@@ -76,8 +78,8 @@ void setup() {
   //
   //nightMode setup
   //
-  backgroundColor = ( nightMode==true ) ? color( random(255), random(255), 0 ) : color( random(255), random(255), random(255) ) ; //ternary operator, similar to IF-Else
-  background( backgroundColor );
+  println("1 to backgroundColorRandom "); 
+  backgroundColorRandom();
   //
   ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
   println(xFace, xFace+widthDiameterFace, yFace, yFace+heightDiameterFace);
@@ -149,32 +151,8 @@ void draw() {
   line (xLeftMoustache, yLeftMoustache, xRightMoustache, yRightMoustache);
   strokeWeight(1);
   //
-  xMeasle = random(xCenter-faceRadius, xCenter+faceRadius);
-  yMeasle = random(yCenter-faceRadius, yCenter+faceRadius); //if zero is first, then default
-  //
-  if (xMeasle>xCenter) {
-    xlength= xMeasle-xCenter;
-  } else {
-    xlength=xCenter-xMeasle;
-  }
-  //
-  if (yMeasle>yCenter) {
-    ylength= yMeasle-yCenter;
-  } else {
-    ylength=yCenter-yMeasle;
-  }
-  //
-  float radiusTest = sqrt(sq(xlength)+sq(ylength));
-  //faceRadius
-  if (faceRadius<radiusTest) {
-    //fill(green);
-    fill(backgroundColor);
-  } else {
-    fill(lightred);
-  }
-  //if (xMeasle<radiusTest && yMeasle<radiusTest) {
-  //  fill(lightred);
-  //}
+  dotRandom();
+  
   noStroke();
   measleDiameter = random(smallerDimension* 1/random(25, 75));
   ellipse(xMeasle, yMeasle, measleDiameter, measleDiameter);
@@ -193,8 +171,20 @@ void mousePressed() {
   //Technically, there are 4 ways to code a mouse button press
   //
   if ( mouseButton == LEFT ) {
+    println("2 to backgroundColorRandom "); 
+    
+    // first Click don't set background Color
+    if (firstClick) {
+      firstClick=false;
+    } else {
+      backgroundColorRandom();
+    }
+    
+    
+    ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
     if (mouseX> quitX && mouseX< quitX+quitButtonWidth && mouseY> quitY && mouseY< quitY+quitButtonHeight) exit();
     if (mouseX>stopX && mouseX<stopX+smallerDimension*1/5 && mouseY>stopY && mouseY<stopY+smallerDimension*1/10) noLoop();
+    dotRandom();
   }
   //
   if (mouseX>0 && mouseX<width-smallerDimension*1/2 && mouseY>0 && mouseY<height) {
@@ -208,10 +198,24 @@ void mousePressed() {
   }//End Left Mouse button
   //
   if ( mouseButton == RIGHT ) {
-    color backgroundColor = ( nightMode==true ) ? color(random(255), random(255), 0) : color(random(255), random(255), random(255)) ; //ternary operator similar to IF-Else
-    background(backgroundColor);
+    //
+    println("3 to backgroundColorRandom "); 
+    
+    // first Click don't set background Color
+    if (firstClick) {
+      firstClick=false;
+    } else {
+      backgroundColorRandom();
+    }
+    
+    
     ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
+    dotRandom();
+    //
   }//End Right Mouse Button
+  
+  
+
   //
   //Note: Mouse WHEEL is also available
   //if ( mouseButton == WHEEL ) {}//End Mouse WHEEL
@@ -229,5 +233,34 @@ void mousePressed() {
    */
   //
 }//End mousePressed
+
+void dotRandom() {
+  xMeasle = random(xCenter-faceRadius, xCenter+faceRadius);
+  yMeasle = random(yCenter-faceRadius, yCenter+faceRadius); //if zero is first, then default
+  if (xMeasle>xCenter) {
+    xlength= xMeasle-xCenter;
+  } else {
+    xlength=xCenter-xMeasle;
+  }
+  if (yMeasle>yCenter) {
+    ylength= yMeasle-yCenter;
+  } else {
+    ylength=yCenter-yMeasle;
+  }
+  radiusTest = sqrt(sq(xlength)+sq(ylength));
+  if (faceRadius<radiusTest) {
+    //fill(green);
+    fill(backgroundColor);
+    println("dotRandom - backgroundColor: " + backgroundColor); 
+  } else {
+    fill(lightred);
+  }
+}
+void backgroundColorRandom() {
+    backgroundColor = ( nightMode==true ) ? color( random(255), random(255), 0 ) : color( random(255), random(255), random(255) ) ; //ternary operator, similar to IF-Else
+    //backgroundColor = color( 255, 255, 0 );
+    background( backgroundColor );
+    println("backgroundColorRandom - backgroundColor: " + backgroundColor); 
+}
 //
 //End MAIN Program

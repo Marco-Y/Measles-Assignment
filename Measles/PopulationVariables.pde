@@ -80,9 +80,9 @@ void populationVariables () {
   xRightNostril = xCenter+smallerDimension*1/10;
   yRightNostril = yLeftNostril;
   //
-  xLeftMoustache = xLeftEye;
+  xLeftMoustache = xLeftEye+smallerDimension*1/10;
   yLeftMoustache = yCenter+smallerDimension*1/6;
-  xRightMoustache = xRightEye;
+  xRightMoustache = xRightEye-smallerDimension*1/10;
   yRightMoustache = yLeftMoustache;
   //
   faceRadius = smallerDimension*1/2.6;
