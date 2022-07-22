@@ -1,4 +1,5 @@
 //Global Variables
+color red=#FF0022, resetDefaultInk=#FFFFFF; // not nightMode friendly
 String title = "Measles Simulator";
 String quitText = "Quit";
 String stopText = "Stop";
@@ -11,7 +12,6 @@ float stopTextX, stopTextY, stopTextWidth, stopTextHeight;
 PFont stopTextFont;
 float startTextX, startTextY, startTextWidth, startTextHeight;
 PFont startTextFont;
-color red=#FF0022, resetDefaultInk=#FFFFFF; // not nightMode friendly
 //
 void titleText() {
   //Population

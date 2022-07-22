@@ -1,4 +1,6 @@
 //Global Variables
+color resetWhite=#FFFFFF, lightred=#F55E72, black=#000000; //similar to int declaration
+color backgroundColor;
 PImage pic1;
 float imageX1, imageY1, imageWidth1, imageHeight1, imageLargerDimension1, imageSmallerDimension1, imageWidthRatio1=0.0, imageHeightRatio1=0.0;
 float picWidthAdjusted1, picHeightAdjusted1;
@@ -14,8 +16,6 @@ float xNoseBridge, yNoseBridge, xLeftNostril, yLeftNostril, xRightNostril, yRigh
 float xLeftMoustache, yLeftMoustache, xRightMoustache, yRightMoustache;
 int thack=20;
 float xMeasle, yMeasle, measleDiameter;
-color resetWhite=#FFFFFF, lightred=#F55E72, black=#000000; //similar to int declaration
-color backgroundColor;
 Boolean widthLarger1=false, heightLarger1=false;
 //
 void populationVariables () {
