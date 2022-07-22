@@ -8,6 +8,8 @@ int centeringButtonHeight = height*1/4;
 int h = hour();
 Boolean noLoop=false, loop=false;
 Boolean nightMode=false;
+float deg = 315.0;
+float rad = radians(deg);
 //
 void setup() {
   //Display Geometry
@@ -20,6 +22,7 @@ void setup() {
   //
   //Dimensions found by right click image / get info
   //Algorithm: Find the larger dimension for aspect ratio (comparison of two numbers)
+  //
   int picWidth1 = 1000;
   int picHeight1 = 317;
   //
@@ -64,6 +67,7 @@ void draw() {
     buttonFill = red;
   }//End Hover-over
   fill(buttonFill); //2-colors to start , remember nightMode adds choice
+  //
   pic1= loadImage("../Images Used/kindpng_7571372.png");
   image(pic1, imageX1, imageY1, imageWidth1, imageHeight1);
   //
