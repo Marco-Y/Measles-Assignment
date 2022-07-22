@@ -11,14 +11,12 @@ float xLeftLight, yLeftLight, xRightLight, yRightLight, lightDiameter;
 float xLeftTears, yLeftTears, xLeftEndTears, yLeftEndTears;
 float xRightTears, yRightTears, xRightEndTears, yRightEndTears;
 float xNoseBridge, yNoseBridge, xLeftNostril, yLeftNostril, xRightNostril, yRightNostril;
-float xLeftMouth, yLeftMouth, xLeftEndMouth, yLeftEndMouth;
-float xRightMouth, yRightMouth, xRightEndMouth, yRightEndMouth;
+float xLeftMoustache, yLeftMoustache, xRightMoustache, yRightMoustache;
 int thack=20;
 float xMeasle, yMeasle, measleDiameter;
 color resetWhite=#FFFFFF, lightred=#F55E72, black=#000000; //similar to int declaration
 color backgroundColor;
 Boolean widthLarger1=false, heightLarger1=false;
-Boolean nightMode =false;
 //
 void populationVariables () {
   //Population
@@ -107,10 +105,10 @@ void populationVariables () {
   xRightNostril = xCenter+smallerDimension*1/10;
   yRightNostril = yLeftNostril;
   //
-  xLeftMouth = xLeftEye;
-  yLeftMouth = yCenter+smallerDimension*1/4;
-  xRightMouth = xRightEye;
-  yRightMouth = yLeftMouth;
+  xLeftMoustache = xLeftEye;
+  yLeftMoustache = yCenter+smallerDimension*1/6;
+  xRightMoustache = xRightEye;
+  yRightMoustache = yLeftMoustache;
   //
   faceRadius = smallerDimension*1/2.6;
   //

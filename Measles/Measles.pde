@@ -5,7 +5,9 @@ float restartX, restartY, restartButtonWidth, restartButtonHeight;
 color green=#0EFF03, brown=#954C48, waterColor=#b9dbe1, resetButtonColor=#FFFFFF, buttonFill; //Not night mode friendly colors
 int centeringButtonWidth = width*1/4;
 int centeringButtonHeight = height*1/4;
+int h = hour();
 Boolean noLoop=false, loop=false;
+Boolean nightMode=false;
 //
 void setup() {
   //Display Geometry
@@ -105,7 +107,7 @@ void draw() {
   strokeCap(SQUARE); //ROUND (default), PROJECT
   strokeWeight(thack);
   //
-  line (xLeftMouth, yLeftMouth, xRightMouth, yRightMouth); //CHANGE TO EYEBROWS
+  line (xLeftMoustache, yLeftMoustache, xRightMoustache, yRightMoustache);
   strokeWeight(1);
   //
   xMeasle = random(xCenter-faceRadius, xCenter+faceRadius);
@@ -146,7 +148,6 @@ void mousePressed() {
   if ( mouseButton == RIGHT ) { //Night Mode TRUE
     backgroundColor = color( random(255), random(255), 0 );
     background( backgroundColor );
-    //rect(xCenter-faceRadius, 0, 2*faceRadius, smallerDimension);
     ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
   }//End Right Mouse Button
   //
